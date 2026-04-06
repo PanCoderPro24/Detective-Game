@@ -21,7 +21,7 @@ while True:
         if suspect_choice!=killer:
          print("I have an alibi. Someone can verify it.\n")
         else:
-          print("Uh...I was at home...I...I think.\n")  
+          print("Uh...I was at home... I think.\n")  
     else:
         print("Invalid name!")
         continue
@@ -56,10 +56,10 @@ while True:
     accused_suspect=input("\nWho is the killer?: ").title()
     if accused_suspect in suspects:
       if accused_suspect==killer:
-       print("You have successfully solved the case!")
+       print("\nYou have successfully solved the case!")
        break
       else:
-        print("You failed to solve the case!")
+        print("\nYou failed to solve the case!")
         print(f"The killer was actually {killer}")
         break
     else:
