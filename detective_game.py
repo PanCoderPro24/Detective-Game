@@ -4,6 +4,7 @@ killer=random.choice(suspects)
 investigations_left=4
 clues_collected=[]
 clues = [f"{killer} was seen near the crime scene", f"The weapon belongs to {killer}", f"{random.choice([s for s in suspects if s != killer])} has a confirmed alibi", f"{random.choice([s for s in suspects if s != killer])} was out of town"]
+print("Welcome, Detective. Investigate the clues, question the suspects, and uncover the truth.")
 while True:
   print("\nWhat would you like to do?")
   print("1. Talk to suspect")
