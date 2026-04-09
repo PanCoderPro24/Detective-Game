@@ -1,9 +1,16 @@
 import random
 suspects=["Ethan", "Chenxuan", "Raymond"]
+statements = {
+    "Ethan": "I wasn't near the crime scene.",
+    "Chenxuan": "I have an alibi. Someone can confirm it.",
+    "Raymond": "That weapon isn't mine."
+}
 killer=random.choice(suspects)
+innocents = [s for s in suspects if s != killer]
 investigations_left=4
 clues_collected=[]
-clues = [f"{killer} was seen near the crime scene", f"The weapon belongs to {killer}", f"{random.choice([s for s in suspects if s != killer])} has a confirmed alibi", f"{random.choice([s for s in suspects if s != killer])} was out of town"]
+clues = [f"{killer} was seen near the crime scene",f"The weapon belongs to {killer}",f"{innocents[0]} has a confirmed alibi",f"{innocents[1]} was out of town"]
+random.shuffle(clues)
 print("Welcome, Detective. Investigate the clues, question the suspects, and uncover the truth.")
 while True:
   print("\nWhat would you like to do?")
@@ -19,10 +26,7 @@ while True:
       print(" -",i)
     suspect_choice=input("\nWho would you like to talk to?: ").title()
     if suspect_choice in suspects:
-        if suspect_choice!=killer:
-         print("I have an alibi. Someone can verify it.\n")
-        else:
-          print("Uh...I was at home... I think.\n")  
+        print(statements[suspect_choice])  
     else:
         print("Invalid name!")
         continue
@@ -66,3 +70,5 @@ while True:
     else:
       print("Invalid name!")
       continue
+  else:
+    print("Invalid choice!")
