@@ -18,7 +18,7 @@ killer=random.choice(suspects)
 innocents = [s for s in suspects if s != killer]
 investigations_left=4
 clues_collected=[]
-clues = clues = [
+clues = [
     f"{killer} was seen near the crime scene.",
     f"Security footage shows {killer} near the area.",
     f"{innocents[0]} has a verified alibi from staff.",
