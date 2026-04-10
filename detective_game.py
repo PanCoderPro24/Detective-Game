@@ -1,15 +1,29 @@
 import random
 suspects=["Ethan", "Chenxuan", "Raymond"]
 statements = {
-    "Ethan": "I wasn't near the crime scene.",
-    "Chenxuan": "I have an alibi. Someone can confirm it.",
-    "Raymond": "That weapon isn't mine."
+  "Ethan": [
+    "I wasn't near the crime scene.",
+    "I was at the cafe that night. The staff saw me."
+  ],
+  "Chenxuan": [
+    "I have an alibi. Someone can confirm it.",
+    "I never left school that day."
+  ],
+  "Raymond": [
+    "That weapon isn't mine. I've never seen it before.",
+    "I was at home all evening."
+  ]
 }
 killer=random.choice(suspects)
 innocents = [s for s in suspects if s != killer]
 investigations_left=4
 clues_collected=[]
-clues = [f"{killer} was seen near the crime scene",f"The weapon belongs to {killer}",f"{innocents[0]} has a confirmed alibi",f"{innocents[1]} was out of town"]
+clues = clues = [
+    f"{killer} was seen near the crime scene.",
+    f"Security footage shows {killer} near the area.",
+    f"{innocents[0]} has a verified alibi from staff.",
+    f"Witness confirms {innocents[1]} was at home."
+]
 random.shuffle(clues)
 print("Welcome, Detective. Investigate the clues, question the suspects, and uncover the truth.")
 while True:
@@ -26,7 +40,9 @@ while True:
       print(" -",i)
     suspect_choice=input("\nWho would you like to talk to?: ").title()
     if suspect_choice in suspects:
-        print(statements[suspect_choice])  
+        print(f"\n{suspect_choice} says:")
+        for line in statements[suspect_choice]:
+            print(" -", line)
     else:
         print("Invalid name!")
         continue
